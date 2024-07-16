@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- header content starting -->
+    <header>
+        <!-- navigation-bar starting  -->
+        <nav>
+            <div class="navigation-bar">
+                <div>
+                    <img src="./assets/images/logo.png" alt="logo sjc" class="logo-img">
+                </div>
+                <div>
+                    <ul class="nav-bar">
+                        <li><a href="./index.html">Home</a></li>
+                        <li><a href="./faculty.html">Faculty</a></li>
+                        <li><a href="./syllabus.html">Syllabus</a></li>
+                        <li><a href="#">Gallery</a></li>
+                        <li><a href="./feedback.html">Feedback</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- navigation ending  -->
+    </header>
+    <!-- header ending  -->
+    <section>
+        <div class="feedback">
+            
+            <form action="" id="form">
+                <h1>
+                    Feedback
+                </h1>
+                <div>
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" id="name">
+                    <p id="nameerr"></p>
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="text" name="email" id="email">
+                    <p id="emailerr"></p>
+                </div>
+                <div>
+                    <label for="comment">Comment</label>
+                    <textarea name="" id="txt" cols="30" rows="5"></textarea>
+                </div>
+                <div>
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    <script>
+        const form =document.getElementById("form");
+        form.addEventListener("submit",(e)=>{
+            console.log("he;;")
+            e.preventDefault()
+            const name = document.getElementById("name").value
+        const email = document.getElementById("email").value
+        let emailerr = document.getElementById("emailerr")
+        let nameerr = document.getElementById("nameerr")
+        let regex=/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g
+
+        if (name === "") {
+                nameerr.innerHTML = "*requierd"
+                nameerr.style.color = "red"
+            }
+            if(email==""){
+                emailerr.innerHTML = "*requierd"
+                emailerr.style.color = "red"
+            }
+            else if(!(email.match(regex))){
+                emailerr.innerHTML="*Enter valid email address"
+                emailerr.style.color="red"
+            }
+        })
+       
+
+    
+    </script>
+</body>
+</html>
